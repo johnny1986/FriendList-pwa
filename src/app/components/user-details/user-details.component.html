@@ -1,0 +1,59 @@
+<div>
+  <mat-card class="example-card">
+    <mat-card-header>
+      <div mat-card-avatar class="example-header-image"></div>
+      <mat-card-title>{{selectedUser.name}}</mat-card-title>
+      <mat-card-subtitle>{{selectedUser.city}}</mat-card-subtitle>
+    </mat-card-header>
+  </mat-card>
+</div>
+<div>
+  <mat-tab-group mat-align-tabs="start">
+    <mat-tab label="Friends">
+      <mat-list>
+        <ng-container *ngFor="let friend of friends">
+          <mat-card  class="example-card">
+            <mat-card-header>
+              <div mat-card-avatar class="example-header-image"></div>
+              <mat-card-title>{{friend.name}}</mat-card-title>
+              <mat-card-subtitle>{{friend.city}}</mat-card-subtitle>
+            </mat-card-header>
+          </mat-card>
+        </ng-container>
+        <mat-divider></mat-divider>
+      </mat-list>
+    </mat-tab>
+    <mat-tab label="Suggested new friends">
+      <mat-list>
+        <ng-container *ngFor="let userWithFriends of userWithFriendsList">
+          <mat-list-item>{{userWithFriends.user.name}}</mat-list-item>
+          <mat-list style="margin-left:30px;">
+            <div *ngFor="let friend of userWithFriends.userFriendsList">
+                <mat-card  class="example-card">
+                  <mat-card-header>
+                    <div mat-card-avatar class="example-header-image"></div>
+                    <mat-card-title>{{friend.name}}</mat-card-title>
+                    <mat-card-subtitle>{{friend.city}}</mat-card-subtitle>
+                  </mat-card-header>
+                </mat-card>
+            </div>
+          </mat-list>
+        </ng-container>
+      </mat-list>
+    </mat-tab>
+    <mat-tab label="Close by new friends">
+      <mat-list>
+        <ng-container *ngFor="let friend of friends">
+          <mat-card class="example-card">
+            <mat-card-header>
+              <div mat-card-avatar class="example-header-image"></div>
+              <mat-card-title>{{friend.name}}</mat-card-title>
+              <mat-card-subtitle>{{friend.city}}</mat-card-subtitle>
+            </mat-card-header>
+          </mat-card>
+        </ng-container>
+        <mat-divider></mat-divider>
+      </mat-list>
+    </mat-tab>
+  </mat-tab-group>
+</div>
